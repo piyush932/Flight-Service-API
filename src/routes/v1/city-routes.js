@@ -14,5 +14,13 @@ router.post('/',
 // /api/v1/cities/1 DELETE
 router.delete('/:id', CityController.destroyCity)
 
+// /api/v1/cities GET
+router.get('/', CityController.getCities)
+
+// /api/v1/cities/:id PATCH
+router.patch('/:id',
+    CityMiddlewares.validateUpdateRequest,
+    CityController.updateCity)
+
 
 module.exports = router;
